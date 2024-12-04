@@ -26,7 +26,11 @@ function logout() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   ss.getRange("F7:F7").setValue("Logout");
   const sheet = ss.getSheetByName("Login logs");
+
+  //get last row number
   const lastRow = sheet.getLastRow();
+
+  // line 34 is identical to line 35, line 35 just dynamically substituting whatever the value of lastRow.
+  // sheet.getRange("C2:C2").setValue(new Date());
   sheet.getRange(`C${lastRow}:C${lastRow}`).setValue(new Date());
-  // sheet.getRange("F7:F7").setValue(lastRow);
 }
